@@ -1,25 +1,35 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Hello.py                                           :+:      :+:    :+:    #
+#    whatis.py                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: shinsaeki <shinsaeki@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/21 12:15:14 by shinsaeki         #+#    #+#              #
-#    Updated: 2024/06/21 12:15:16 by shinsaeki        ###   ########.fr        #
+#    Created: 2024/06/22 22:18:02 by shinsaeki         #+#    #+#              #
+#    Updated: 2024/06/22 22:47:35 by shinsaeki        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-ft_list  = ["Hello", "tata!"]
-ft_tuple = ("Hello", "Japan!")
-ft_set   = {"Hello", "Tokyo!"}
-ft_dict  = {"Hello" : "titi!"}
+import sys
 
-#your code here
-ft_list[1] = "World!"
-ft_dict["Hello"] = "42Tokyo!"
+def main():
+	args = sys.argv
 
-print(ft_list)
-print(ft_tuple)
-print(ft_set)
-print(ft_dict)
+	if len(args) > 2:
+		print("AssertionError: More thab 1 argument provided")
+		return
+	else:
+		try:
+			number = int(args[1])
+		except ValueError:
+			print("ValueError: Argument is not a number")
+			return
+
+		if number % 2 == 0:
+			print("I'm Even")
+		else:
+			print("I'm Odd")
+	return
+
+if __name__ == "__main__":
+	main()
